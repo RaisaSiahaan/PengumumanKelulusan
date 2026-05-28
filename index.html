@@ -17,12 +17,14 @@
 
 body{
     min-height:100vh;
-    background:linear-gradient(135deg,#0f172a,#1e293b,#111827);
+    background:
+    linear-gradient(135deg,#0f172a,#1e293b,#111827);
     display:flex;
     justify-content:center;
     align-items:center;
     padding:30px;
     color:white;
+    overflow-x:hidden;
 }
 
 /* CONTAINER */
@@ -32,10 +34,11 @@ body{
     max-width:530px;
     background:rgba(255,255,255,0.05);
     border:1px solid rgba(255,255,255,0.1);
-    backdrop-filter:blur(12px);
-    border-radius:25px;
+    backdrop-filter:blur(14px);
+    border-radius:28px;
     padding:35px;
     box-shadow:0 20px 40px rgba(0,0,0,0.4);
+    position:relative;
 }
 
 /* LOGO */
@@ -52,11 +55,30 @@ body{
     align-items:center;
     overflow:hidden;
     padding:15px;
+    animation:float 3s ease-in-out infinite;
 }
 
 .logo img{
     width:100%;
     object-fit:contain;
+}
+
+/* FLOAT */
+
+@keyframes float{
+
+    0%{
+        transform:translateY(0px);
+    }
+
+    50%{
+        transform:translateY(-8px);
+    }
+
+    100%{
+        transform:translateY(0px);
+    }
+
 }
 
 /* TITLE */
@@ -95,10 +117,12 @@ input{
     background:#1e293b;
     color:white;
     font-size:16px;
+    transition:0.3s;
 }
 
 input:focus{
     border:2px solid #38bdf8;
+    box-shadow:0 0 10px rgba(56,189,248,0.3);
 }
 
 /* BUTTON */
@@ -174,16 +198,22 @@ button:hover{
     padding-bottom:10px;
 }
 
-/* STATUS */
+/* STATUS LULUS */
 
 .status-lulus{
     margin-top:25px;
-    padding:25px;
-    border-radius:18px;
+    padding:30px;
+    border-radius:20px;
     background:rgba(34,197,94,0.15);
     border:1px solid #22c55e;
     text-align:center;
+
+    animation:
+    zoomIn 0.7s ease,
+    glow 2s infinite alternate;
 }
+
+/* STATUS TIDAK */
 
 .status-tidak{
     margin-top:25px;
@@ -194,10 +224,65 @@ button:hover{
     text-align:center;
 }
 
+/* TITLE STATUS */
+
 .status-title{
-    font-size:34px;
+    font-size:40px;
     font-weight:bold;
     margin-bottom:12px;
+
+    animation:
+    pulse 1.5s infinite;
+}
+
+/* ZOOM */
+
+@keyframes zoomIn{
+
+    from{
+        opacity:0;
+        transform:scale(0.5);
+    }
+
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
+
+}
+
+/* PULSE */
+
+@keyframes pulse{
+
+    0%{
+        transform:scale(1);
+    }
+
+    50%{
+        transform:scale(1.08);
+    }
+
+    100%{
+        transform:scale(1);
+    }
+
+}
+
+/* GLOW */
+
+@keyframes glow{
+
+    from{
+        box-shadow:
+        0 0 10px rgba(34,197,94,0.3);
+    }
+
+    to{
+        box-shadow:
+        0 0 35px rgba(34,197,94,0.7);
+    }
+
 }
 
 /* FOOTER */
@@ -249,20 +334,24 @@ button:hover{
     <!-- FORM -->
 
     <div class="form-group">
+
         <label>Nama Lengkap</label>
 
         <input
         type="text"
         id="nama"
         placeholder="Masukkan nama lengkap">
+
     </div>
 
     <div class="form-group">
+
         <label>Tanggal Lahir</label>
 
         <input
         type="date"
         id="tgl">
+
     </div>
 
     <button onclick="cekKelulusan()">
@@ -322,6 +411,20 @@ button:hover{
 
 </div>
 
+<!-- AUDIO -->
+
+<audio id="successSound">
+
+    <source
+    src="https://cdn.pixabay.com/audio/2022/03/15/audio_c8c8a73467.mp3"
+    type="audio/mpeg">
+
+</audio>
+
+<!-- CONFETTI -->
+
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
 <script>
 
 /* =========================
@@ -373,7 +476,7 @@ async function cekKelulusan(){
 
     try{
 
-        /* URL FETCH */
+        /* URL */
 
         const url =
         API_URL +
@@ -382,7 +485,7 @@ async function cekKelulusan(){
         "&tgl=" +
         encodeURIComponent(tgl);
 
-        /* FETCH DATA */
+        /* FETCH */
 
         const response =
         await fetch(url);
@@ -392,7 +495,7 @@ async function cekKelulusan(){
 
         loading.style.display = "none";
 
-        /* DATA TIDAK DITEMUKAN */
+        /* NOT FOUND */
 
         if(hasil.status === "NOT_FOUND"){
 
@@ -442,6 +545,40 @@ async function cekKelulusan(){
                 </div>
 
                 `;
+
+                /* SUARA */
+
+                document
+                .getElementById("successSound")
+                .play();
+
+                /* CONFETTI */
+
+                confetti({
+
+                    particleCount:200,
+                    spread:120,
+                    origin:{ y:0.6 }
+
+                });
+
+                confetti({
+
+                    particleCount:100,
+                    angle:60,
+                    spread:80,
+                    origin:{ x:0 }
+
+                });
+
+                confetti({
+
+                    particleCount:100,
+                    angle:120,
+                    spread:80,
+                    origin:{ x:1 }
+
+                });
 
             }
 
