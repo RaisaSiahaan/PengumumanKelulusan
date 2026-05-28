@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Pengumuman Kelulusan SMPK IPEKA Pluit</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    min-height:100vh;
+    background:
+    linear-gradient(135deg,#0f172a,#1e293b,#111827);
+    color:white;
+    overflow-x:hidden;
+}
+
+/* HERO */
+
+.hero{
+    width:100%;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:40px 20px;
+}
+
+.container{
+    width:100%;
+    max-width:900px;
+    background:rgba(255,255,255,0.05);
+    border:1px solid rgba(255,255,255,0.1);
+    backdrop-filter:blur(12px);
+    border-radius:30px;
+    padding:40px;
+    box-shadow:0 20px 40px rgba(0,0,0,0.4);
+}
+
+/* LOGO */
+
+.logo{
+    width:120px;
+    height:120px;
+    margin:auto;
+    margin-bottom:25px;
+    border-radius:50%;
+    background:linear-gradient(45deg,#2563eb,#38bdf8);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+    padding:15px;
+}
+
+.logo img{
+    width:100%;
+    object-fit:contain;
+}
+
+/* TITLE */
+
+h1{
+    text-align:center;
+    font-size:42px;
+    margin-bottom:15px;
+}
+
+.subtitle{
+    text-align:center;
+    color:#cbd5e1;
+    font-size:18px;
+    line-height:1.8;
+    margin-bottom:35px;
+}
+
+/* COUNTDOWN */
+
+.countdown{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    flex-wrap:wrap;
+    margin-bottom:40px;
+}
+
+.box{
+    width:120px;
+    background:#0f172a;
+    border-radius:20px;
+    padding:25px 10px;
+    text-align:center;
+    border:1px solid rgba(255,255,255,0.08);
+}
+
+.box h2{
+    font-size:40px;
+    margin-bottom:8px;
+    color:#38bdf8;
+}
+
+.box p{
+    color:#cbd5e1;
+}
+
+/* CARD */
+
+.card{
+    background:#0f172a;
+    border-radius:25px;
+    padding:30px;
+    margin-top:30px;
+    border:1px solid rgba(255,255,255,0.08);
+}
+
+/* IMAGE */
+
+.poster{
+    width:100%;
+    border-radius:20px;
+    overflow:hidden;
+    margin-top:20px;
+}
+
+.poster img{
+    width:100%;
+    display:block;
+}
+
+/* SCHEDULE */
+
+.schedule{
+    margin-top:25px;
+}
+
+.item{
+    background:rgba(255,255,255,0.05);
+    border-radius:18px;
+    padding:18px;
+    margin-bottom:15px;
+    border-left:5px solid #38bdf8;
+}
+
+.item h3{
+    margin-bottom:8px;
+    color:#38bdf8;
+}
+
+.item p{
+    color:#cbd5e1;
+    line-height:1.7;
+}
+
+/* BUTTON */
+
+.button{
+    display:block;
+    width:100%;
+    text-align:center;
+    padding:18px;
+    margin-top:35px;
+    border-radius:18px;
+    background:linear-gradient(45deg,#2563eb,#38bdf8);
+    color:white;
+    text-decoration:none;
+    font-size:18px;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+.button:hover{
+    transform:translateY(-3px);
+    box-shadow:0 10px 20px rgba(56,189,248,0.3);
+}
+
+/* FOOTER */
+
+.footer{
+    text-align:center;
+    margin-top:35px;
+    color:#94a3b8;
+    font-size:14px;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:700px){
+
+    h1{
+        font-size:32px;
+    }
+
+    .container{
+        padding:25px;
+    }
+
+    .box{
+        width:100px;
+    }
+
+    .box h2{
+        font-size:32px;
+    }
+
+}
+
+</style>
+</head>
+<body>
+
+<section class="hero">
+
+<div class="container">
+
+    <!-- LOGO -->
+
+    <div class="logo">
+        <img src="https://ipeka.org/wp-content/uploads/2025/06/IPEKA-Christian-School-White-01-300x168.png">
+    </div>
+
+    <!-- TITLE -->
+
+    <h1>Pengumuman Kelulusan</h1>
+
+    <p class="subtitle">
+        SMPK IPEKA Pluit<br>
+        Website dapat diakses pada<br>
+        <b>2 Juni 2026</b>
+    </p>
+
+    <!-- COUNTDOWN -->
+
+    <div class="countdown">
+
+        <div class="box">
+            <h2 id="days">0</h2>
+            <p>Hari</p>
+        </div>
+
+        <div class="box">
+            <h2 id="hours">0</h2>
+            <p>Jam</p>
+        </div>
+
+        <div class="box">
+            <h2 id="minutes">0</h2>
+            <p>Menit</p>
+        </div>
+
+        <div class="box">
+            <h2 id="seconds">0</h2>
+            <p>Detik</p>
+        </div>
+
+    </div>
+
+    <!-- UNDANGAN -->
+
+    <div class="card">
+
+        <h2>Undangan Wisuda</h2>
+
+        <div class="poster">
+
+            <!-- GANTI DENGAN GAMBAR UNDANGAN -->
+            <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=1200&auto=format&fit=crop">
+
+        </div>
+
+    </div>
+
+    <!-- JADWAL -->
+
+    <div class="card">
+
+        <h2>Jadwal Latihan Wisuda</h2>
+
+        <div class="schedule">
+
+            <div class="item">
+                <h3>1. Latihan I</h3>
+                <p>
+                    29 Mei 2026<br>
+                    08.30 - 13.00
+                </p>
+            </div>
+
+            <div class="item">
+                <h3>2. Latihan II</h3>
+                <p>
+                    3 Juni 2026<br>
+                    10.00 - 12.00
+                </p>
+            </div>
+
+            <div class="item">
+                <h3>3. Latihan III (GK)</h3>
+                <p>
+                    4 Juni 2026<br>
+                    11.30 - 13.00
+                </p>
+            </div>
+
+            <div class="item">
+                <h3>4. Latihan IV (GR)</h3>
+                <p>
+                    5 Juni 2026<br>
+                    07.30 - 11.30<br>
+                    GKY Pluit
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- BUTTON -->
+
+    <a href="login.html" class="button">
+        Masuk ke Pengumuman Kelulusan
+    </a>
+
+    <!-- FOOTER -->
+
+    <div class="footer">
+        © 2026 SMPK IPEKA Pluit
+    </div>
+
+</div>
+
+</section>
+
+<script>
+
+/* =========================
+   COUNTDOWN
+========================= */
+
+const targetDate =
+new Date("June 2, 2026 00:00:00").getTime();
+
+setInterval(function(){
+
+    const now =
+    new Date().getTime();
+
+    const distance =
+    targetDate - now;
+
+    const days =
+    Math.floor(distance / (1000*60*60*24));
+
+    const hours =
+    Math.floor(
+    (distance % (1000*60*60*24))
+    /
+    (1000*60*60)
+    );
+
+    const minutes =
+    Math.floor(
+    (distance % (1000*60*60))
+    /
+    (1000*60)
+    );
+
+    const seconds =
+    Math.floor(
+    (distance % (1000*60))
+    /
+    1000
+    );
+
+    document.getElementById("days")
+    .innerHTML = days;
+
+    document.getElementById("hours")
+    .innerHTML = hours;
+
+    document.getElementById("minutes")
+    .innerHTML = minutes;
+
+    document.getElementById("seconds")
+    .innerHTML = seconds;
+
+},1000);
+
+</script>
+
+</body>
+</html>
